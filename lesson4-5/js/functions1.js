@@ -54,4 +54,81 @@ console.log(str);
 str = greetingStr(27);
 console.log(str);
 
+function paintElem(elem, color="yellow") {
+    elem.style.background = color;
+}
+
+paintElem(document.body, "green");
+paintElem(document.body);
+
+// переменное количество аргументов
+function getAverage(...nums){
+    let sum = 0;
+    for (let n of nums) {
+        sum += n;
+    }
+    return sum / nums.length;
+}
+
+let avg = getAverage(8, 12, -90, 45, 11, 800);
+console.log(avg);
+avg = getAverage(56, 0, 1);
+console.log(avg);
+
+function fullInfo(name, surname, ...others) {
+
+}
+fullInfo("Олег", "Петров", "22 года", "qwe@mail.ru");
+fullInfo("Елена", "Петрова");
+
+let catName = "Том";
+let codes = [4, 5, 6];
+
+function changeName(str){
+    str += " Кот";
+    return str;
+}
+
+function changeCodes(arr){
+    for (let i = 0; i < arr.length; i += 1){
+        arr[i] *= 10;
+    }
+}
+
+catName = changeName(catName);
+changeCodes(codes);
+console.log(catName);
+console.log(codes);
+
+let s = 78;
+let t = s;
+
+s = 20;
+
+let nArr = [4, 5, 6];
+let other = nArr;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
