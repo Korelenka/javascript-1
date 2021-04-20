@@ -54,7 +54,7 @@ for (let book of userData.books) {
     if (book.pageCount > 500) console.log(book.title);
 }
 
-for (let i = 0; i < userData.books.length; i += 1){
+for (let i = 0; i < userData.books.length; i += 1) {
     console.log(userData.books[i]);
     if (userData.books[i].pageCount > 500) {
         console.log(userData.books[i].title);
@@ -83,8 +83,77 @@ let messages = [
 let userCode = parseInt(prompt("Введите код"));
 let texts = [];
 
-for (let message of messages){
+for (let message of messages) {
     if (message.code > userCode) texts.push(message.text);
 }
 
 console.log(texts);
+
+
+jsBook = {
+    title: 'About JS',
+    author: 'JS Junior',
+    pageCount: 102,
+};
+
+// перебор объектов - цикл for in
+for (let propertyName in jsBook) {
+    // jsBook.propertyName - undefined
+    console.log(`Имя свойства ${propertyName}, значение ${jsBook[propertyName]}`);
+}
+// массив с ключами (свойствами) объекта jsBook
+let keys = Object.keys(jsBook);
+console.log(keys); // ["title", "author", "pageCount"]
+
+// массив со значениями объекта jsBook
+let values = Object.values(jsBook);
+console.log(values); // ["About JS", "JS Junior", 102]
+
+// массив пар [ключ(свойство): значение]
+let entries = Object.entries(jsBook);
+console.log(entries);
+
+// Деструктуризация объекта
+jsBook = {
+    title: 'About JS',
+    author: 'JS Junior',
+    pageCount: 102,
+};
+
+let {title, author, pageCount, img = 'default.png'} = jsBook;
+console.log(title);
+console.log(author);
+console.log(pageCount);
+console.log(img);
+
+let {login, pwd, ...others} = {
+    login: "qwerty",
+    pwd: "qwe12345",
+    phone: "+999999999",
+    email: "qwe@gmail.com"
+};
+
+console.log(login);
+console.log(pwd);
+console.log(others);
+
+let {name: userName, age: userAge} = {name: "Anna", age: 33};
+console.log(userName);
+console.log(userAge);
+
+// Деструктуризация объекта в параметрах функции
+jsBook = {
+    title: 'About JS',
+    author: 'JS Junior',
+    pageCount: 102,
+};
+
+function doSmth({title, author, img = 'default.png'}) {
+    console.log(title);
+    console.log(author);
+    console.log(img);
+}
+
+doSmth(jsBook);
+
+
