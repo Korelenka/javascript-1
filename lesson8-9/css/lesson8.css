@@ -1,0 +1,15 @@
+.items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    border: 2px solid orangered;
+    border-radius: 10px;
+
+}
+
+img {
+    width: 100%;
+    height: auto;
+}

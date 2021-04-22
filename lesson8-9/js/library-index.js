@@ -36,6 +36,21 @@ function getRandomBooks() {
         },
     ];
 }
+/*<div>
+    <img src="https://picsum.photos/200/300?random=1">
+    <a href="#">Читать</a>
+</div>*/
+function addRandomBooks(where, books){
+    for (let book of books) {
+        let bookDiv = document.createElement("div");
+        bookDiv.innerHTML = `
+            <img src="${book.img}">
+            <a href="one-book.html?id=${book.id}">Читать</a>
+        `;
+        where.append(bookDiv);
+    }
+}
+addRandomBooks(document.querySelector(".random"), getRandomBooks());
 
 function getBooksByGenre() {
     return [
@@ -95,3 +110,20 @@ function getBooksByGenre() {
         }
     ]
 }
+
+
+function addByGenre(where, byGenre) {
+    for (let genre of byGenre) {
+        // создание секции
+        section.classList.add("flex-row", "wrap");
+
+        title.innerText = `Книги из жанра ${genre.genreName}`;
+        // создание заголовка секции
+        // добавление заголовка в секцию
+        for (let book of genre.books) {
+            // создание div
+            // наполнение div элементами через innerHTML
+        }
+    }
+}
+
