@@ -114,16 +114,28 @@ function getBooksByGenre() {
 
 function addByGenre(where, byGenre) {
     for (let genre of byGenre) {
-        // создание секции
-        section.classList.add("flex-row", "wrap");
+        let genreSection = document.createElement('section');
+        genreSection.classList.add('flex-row', 'wrap');
+        let h2Element = document.createElement('h2');
+        h2Element.classList.add('text-shadow-blue', 'text-center', 'section-title');
+        h2Element.innerText = genre.genreName;
+        genreSection.append(h2Element);
 
-        title.innerText = `Книги из жанра ${genre.genreName}`;
-        // создание заголовка секции
-        // добавление заголовка в секцию
         for (let book of genre.books) {
-            // создание div
-            // наполнение div элементами через innerHTML
+            let div = document.createElement('div');
+            div.classList.add('col-4', 'col-sm-6', 'col-xs-12', 'flex-row');
+            div.innerHTML =
+                `<article class="book">
+                <span>${book.title}</span>
+                <div><img src="${book.img}" alt="${book.title}"></div>
+                <p>${book.description}</p>
+                <a href="one-book.html?id=${book.id}">Читать</a>
+            </article>`;
+            genreSection.append(div);
         }
+        where.append(genreSection);
     }
 }
 
+
+addByGenre(document.querySelector("main"), getBooksByGenre());
