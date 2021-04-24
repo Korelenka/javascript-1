@@ -66,6 +66,66 @@ function generateCards(where, object) {
 
 generateCards(document.querySelector(".items"), getGoods());
 
+// userData {name: "Глеб", img: "user.png"}
+function addComment(commentText, userData, element){
+    // текущие дату и время
+    let item = document.createElement('div');
+    item.classList.add('items');
+    item.innerHTML = `
+        <div class="photo"><!--Фото-->
+            <img src="${userData.img}" alt="Фото пользователя">
+        </div>
+        <div><!--Имя, дата, текст комментария-->
+            <p><!--Имя, дата-->
+                <span class="strong-uppercase"><!--Имя-->
+                    ${userData.name}
+                </span>
+                |
+                <span><!--Дата-->
+                    ${getDate()}
+                </span>
+            </p>
+            <p><!--Комментарий-->
+                ${commentText}
+            </p>
+        </div>
+    `;
+    element.append(item);
+}
+
+function getDate() {
+    let currentDate = new Date();
+
+    return `
+        ${currentDate.getDate()}.${currentDate.getMonth() + 1}.${currentDate.getFullYear()} ${currentDate.getHours()}:${currentDate.getMinutes()}
+    `;
+}
+
+addComment(
+    'Hey there!',
+    {name: "Глеб", img: "user.png"},
+    document.querySelector('#comments')
+    );
+console.log(getDate());
+let userData = {name: "Глеб", img: "user.png"};
+
+// написать функцию, которая принимает на вход день недели:
+// 0 - воскресенье, 6 - суббота
+// возвращает день недель строкой
+
+function getDay(dayNum){
+    /*if (dayNum === 0) return "воскресенье";
+    if (dayNum === 1) return "понедельник";
+    if (dayNum === 2) return "вторник";
+    if (dayNum === 3) return "среда";
+    if (dayNum === 4) return "четверг";*/
+
+   let days = ["воскресенье", "понедельник", "вторник", "среда",
+    "четверг", "пятница", "суббота"];
+    return days[dayNum];
+}
+let current = new Date();
+console.log(getDay(current.getDay())); // суббота
 
 
 
@@ -73,10 +133,11 @@ generateCards(document.querySelector(".items"), getGoods());
 
 
 
-let date = new Date();
-let day = date.getDate(),
-    month = date.getMonth() + 1,
-    year = date.getFullYear(),
-    hours = date.getHours(),
-    minutes = date.getMinutes();
+
+
+
+
+
+
+
 
